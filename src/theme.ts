@@ -15,6 +15,6 @@ export const theme = createTheme({
   components: {
     MuiButton: { defaultProps: { disableElevation: true } },
     MuiCard: { styleOverrides: { root: { border: '1px solid #e8edf5' } } },
+    MuiTypography: { styleOverrides: { root: { overflowWrap: 'anywhere' } } },
   },
 });
-

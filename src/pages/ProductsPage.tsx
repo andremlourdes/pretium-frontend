@@ -84,12 +84,12 @@ export function ProductsPage() {
 
   return (
     <Stack spacing={3}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2 }}>
-        <Box>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'center' }, gap: 2 }}>
+        <Box sx={{ minWidth: 0 }}>
           <Typography variant="h4">Produtos</Typography>
           <Typography color="text.secondary">Cadastre e acompanhe os produtos monitorados.</Typography>
         </Box>
-        <Button variant="contained" startIcon={<AddOutlined />} onClick={openCreate}>Novo produto</Button>
+        <Button sx={{ width: { xs: '100%', sm: 'auto' } }} variant="contained" startIcon={<AddOutlined />} onClick={openCreate}>Novo produto</Button>
       </Box>
 
       {feedback && <Alert severity={feedback.severity} onClose={() => setFeedback(undefined)}>{feedback.message}</Alert>}
@@ -105,8 +105,8 @@ export function ProductsPage() {
             InputProps={{ startAdornment: <InputAdornment position="start"><SearchOutlined /></InputAdornment> }}
           />
         </Box>
-        <TableContainer>
-          <Table>
+        <TableContainer sx={{ overflowX: 'auto' }}>
+          <Table sx={{ minWidth: 650 }}>
             <TableHead>
               <TableRow>
                 <TableCell>Produto</TableCell>
@@ -129,8 +129,10 @@ export function ProductsPage() {
                   <TableCell>{product.unit || '—'}</TableCell>
                   <TableCell><Chip size="small" label={product.status || 'ACTIVE'} color={product.status === 'INACTIVE' ? 'default' : 'success'} /></TableCell>
                   <TableCell align="right">
-                    <Button size="small" startIcon={<EditOutlined />} onClick={() => openEdit(product)}>Editar</Button>
-                    <Button size="small" color="error" startIcon={<DeleteOutline />} onClick={() => setDeletingProduct(product)}>Excluir</Button>
+                    <Stack direction={{ xs: 'column', sm: 'row' }} spacing={0.5} alignItems={{ xs: 'stretch', sm: 'center' }}>
+                      <Button size="small" startIcon={<EditOutlined />} onClick={() => openEdit(product)}>Editar</Button>
+                      <Button size="small" color="error" startIcon={<DeleteOutline />} onClick={() => setDeletingProduct(product)}>Excluir</Button>
+                    </Stack>
                   </TableCell>
                 </TableRow>
               ))}
@@ -160,4 +162,3 @@ export function ProductsPage() {
     </Stack>
   );
 }
-

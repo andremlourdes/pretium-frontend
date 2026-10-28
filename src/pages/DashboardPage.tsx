@@ -19,12 +19,12 @@ export function DashboardPage() {
 
   return (
     <Stack spacing={3}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2 }}>
-        <Box>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'center' }, gap: 2 }}>
+        <Box sx={{ minWidth: 0 }}>
           <Typography variant="h4">Dashboard</Typography>
           <Typography color="text.secondary">Acompanhe seus produtos, compras e economia.</Typography>
         </Box>
-        <Button startIcon={<RefreshOutlined />} variant="outlined" onClick={() => summaryQuery.refetch()} disabled={summaryQuery.isFetching}>
+        <Button sx={{ width: { xs: '100%', sm: 'auto' } }} startIcon={<RefreshOutlined />} variant="outlined" onClick={() => summaryQuery.refetch()} disabled={summaryQuery.isFetching}>
           Atualizar
         </Button>
       </Box>
@@ -50,4 +50,3 @@ export function DashboardPage() {
     </Stack>
   );
 }
-

@@ -103,10 +103,9 @@ export function AppLayout() {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, sm: 3, md: 4 }, pt: { xs: 10, md: 4 } }}>
+      <Box component="main" sx={{ flexGrow: 1, minWidth: 0, p: { xs: 2, sm: 3, md: 4 }, pt: { xs: 10, md: 4 } }}>
         <Outlet />
       </Box>
     </Box>
   );
 }
-

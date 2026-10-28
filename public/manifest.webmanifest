@@ -1,0 +1,19 @@
+{
+  "name": "Pretium - Controle de preços",
+  "short_name": "Pretium",
+  "description": "Controle produtos, compras e preços em supermercados.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#1565c0",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
