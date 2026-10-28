@@ -33,6 +33,5 @@ export const deleteAlert = async (id: number) => { await api.delete(`/api/alerts
 export async function uploadReceiptOcr(file: File) {
   const formData = new FormData();
   formData.append('file', file);
-  return (await api.post<OcrResult>('/api/ocr/receipt', formData, { headers: { 'Content-Type': 'multipart/form-data' } })).data;
+  return (await api.post<OcrResult>('/api/ocr/receipt', formData)).data;
 }
-

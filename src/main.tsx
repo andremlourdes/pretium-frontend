@@ -28,9 +28,11 @@ window.addEventListener('unhandledrejection', (event) => {
 
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch((error: unknown) => {
-      logger.error('Não foi possível registrar o service worker', { error });
-    });
+    navigator.serviceWorker.register('/sw.js')
+      .then((registration) => registration.update())
+      .catch((error: unknown) => {
+        logger.error('Não foi possível registrar o service worker', { error });
+      });
   });
 }
 
